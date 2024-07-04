@@ -6,10 +6,22 @@ type CharFreq struct {
 	count int
 }
 
-func (h CharHeap) Len() int            { return len(h) }
-func (h CharHeap) Less(i, j int) bool  { return h[i].char > h[j].char }
-func (h CharHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *CharHeap) Push(x interface{}) { *h = append(*h, x.(CharFreq)) }
+func (h CharHeap) Len() int { 
+    return len(h) 
+}
+
+func (h CharHeap) Less(i, j int) bool {
+    return h[i].char > h[j].char 
+}
+
+func (h CharHeap) Swap(i, j int) { 
+    h[i], h[j] = h[j], h[i] 
+}
+
+func (h *CharHeap) Push(x interface{}) { 
+    *h = append(*h, x.(CharFreq)) 
+}
+
 func (h *CharHeap) Pop() interface{} {
 	old := *h
 	n := len(old)
