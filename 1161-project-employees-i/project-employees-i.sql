@@ -2,11 +2,9 @@ SELECT
     p.project_id,
     ROUND
     (
-        COALESCE(
-            SUM(e.experience_years )::numeric /
-            NULLIF(COUNT(p.project_id),0),
-            0
-        ), 2
+        SUM(e.experience_years )::numeric /
+        NULLIF(COUNT(p.project_id),0), 
+        2
     ) AS average_years 
 FROM Project p
 LEFT JOIN Employee e 
